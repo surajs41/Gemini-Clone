@@ -1,14 +1,14 @@
-import React from 'react'
-import Sidebar from './components/sidebar';
-import MainContent from './components/MainContent';
-
+import React from "react"
+import Sidebar from "./components/Sidebar"
+import MainContent from "./components/MainContent"
 const App = () => {
-  return(
+  return (
     <>
-    <div className="flex">
-     <Sidebar/>
-     <MainContent/>
-     </div>
+      <div className="flex animate-fadeIn duration-1000">
+        
+        <Sidebar />
+        <MainContent />
+      </div>
     </>
   )
 }
