@@ -8,7 +8,8 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 import { FaMicrophone } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 import { Context } from '../context/Context';
-import geminlogo from "../assets/geminlogo.png";
+import geminiLogo from "../assets/geminiLogo.png";
+
 
 const MainContent = () => {
   const{
