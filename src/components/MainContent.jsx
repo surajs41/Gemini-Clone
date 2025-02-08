@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegCompass } from "react-icons/fa";
 import { FaRegLightbulb } from "react-icons/fa";
@@ -7,8 +7,22 @@ import { FaReact } from "react-icons/fa";
 import { MdAddPhotoAlternate } from "react-icons/md";
 import { FaMicrophone } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
+import { Context } from '../context/Context';
 
 const MainContent = () => {
+  const{
+    input,
+    setInput,
+    recentPrompt,
+    setRecentPrompt,
+    previousPrompt,
+    setPreviousPrompt,
+    showResult,
+    loading,
+    resultData,
+    onSent,
+  } = useContext(Context)
+
   return <div className="flex-1 min-h-screen pb-[15vh] relative">
       <div className="flex items-center justify-between text-x1 p-5 text-slate-700">
         <p>Gemini</p>
@@ -48,11 +62,12 @@ const MainContent = () => {
         </div>
         <div className="absolute bottom-0 w-full max-w-[900px] px-5 mx-auto">
           <div className="flex items-center justify-between gap-20 bg-gray-200 py-2 px-5 rounded-full">
-            <input type="text" placeholder="Enter prompt here..." className="flex-1 bg-transparent border-none outline-none p-2 text-lg\"/>
+            <input type="text" placeholder="Enter prompt here..." className="flex-1 bg-transparent border-none outline-none p-2 text-lg\" value={input}
+            onChange={(e) => setInput(e.target.value)}/>
             <div className="flex gap-4 items-center">
             <MdAddPhotoAlternate className="text-2xl cursor-pointer" />
             <FaMicrophone className="text-2xl cursor-pointer"  />
-            <IoMdSend className="text-2xl cursor-pointer"  />
+            <IoMdSend onClick={() => onSent(input)} className="text-2xl cursor-pointer"  />
             </div>
           </div>
           <p className="text-sm my-4 mx-auto text-center font-[500] text-slate-600">

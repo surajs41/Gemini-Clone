@@ -6,13 +6,30 @@ export { Context };
 
 
 const ContextProvider = (props) => {
+
+  const [input, setInput] = useState("")
+  const [recentPrompt, setRecentPrompt] = useState("")
+  const [previousPrompt, setPreviousPrompt] = useState([])
+  const [showResult, setShowResult] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [resultData, setResultData] = useState("")
+
   const onSent = async (prompt) => {
     await run(prompt)
   }
 
-  onSent("What is Java?")
-
-  const contextValue = {}
+  const contextValue = {
+    input,
+    setInput,
+    recentPrompt,
+    setRecentPrompt,
+    previousPrompt,
+    setPreviousPrompt,
+    showResult,
+    loading,
+    resultData,
+    onSent,
+  }
 
   return(
     <Context.Provider value={contextValue}>{props.children}</Context.Provider>
